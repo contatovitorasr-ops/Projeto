@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Polícia Penal RS - Sistema de Estudos</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+<div id="telaLogin" class="login-screen">
+  <div class="login-box">
+    <h2>PP-RS</h2>
+    <p>Sistema de Estudos</p>
+
+    <input type="text" id="loginNome" placeholder="Nome">
+    <input type="email" id="loginEmail" placeholder="E-mail">
+    <input type="password" id="loginSenha" placeholder="Senha">
+
+    <button onclick="cadastrarUsuario()">Cadastrar</button>
+    <button onclick="fazerLogin()">Entrar</button>
+
+    <small id="loginMensagem"></small>
+  </div>
+</div>
+<div class="container">
+
+
+
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>PP-RS</h2>
+            <span>Técnico Administrativo</span>
+<p id="mensagemUsuario">Bem-vindo</p>
+<button onclick="sairUsuario()">Sair</button>
+        </div>
+
+    <nav>
+
+        <button class="menu-btn active" onclick="showPage('dashboard')">
+            Dashboard
+        </button>
+
+        <button class="menu-btn" onclick="showPage('questoes')">
+            Banco de Questões
+        </button>
+
+        <button class="menu-btn" onclick="showPage('simulado')">
+            Simulados
+        </button>
+
+        <button class="menu-btn" onclick="showPage('estatisticas')">
+            Estatísticas
+        </button>
+
+        <button class="menu-btn" onclick="showPage('revisao')">
+            Revisões
+        </button>
+
+        <button class="menu-btn" onclick="showPage('metas')">
+            Metas
+        </button>
+
+        <button onclick="resetarEstatisticas()">
+            🔄 Resetar Estatísticas
+        </button>
+
+    </nav>
+
+    </aside>
+
+    <main class="content">
+        <section id="areaEstudos" class="page">
+
+    <h1>📚 Área de Estudos</h1>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Aulas Concluídas</h3>
+            <span id="aulasConcluidas">0</span>
+        </div>
+
+        <div class="card">
+            <h3>Total de Aulas</h3>
+            <span id="totalAulas">0</span>
+        </div>
+
+        <div class="card">
+            <h3>Progresso</h3>
+            <span id="progressoAulas">0%</span>
+        </div>
+    </div>
+    <div class="questao">
+
+    <h2>Progresso por Matéria</h2>
+
+    <div id="progressoMaterias">
+
+    </div>
+
+</div>
+
+    <div class="filtros">
+        <select id="filtroMateriaAula" onchange="renderizarAulas()">
+            <option value="">Todas as matérias</option>
+            <option value="Português">Português</option>
+            <option value="Informática">Informática</option>
+            <option value="Raciocínio Lógico">Raciocínio Lógico</option>
+            <option value="Legislação/Direito">Legislação/Direito</option>
+            <option value="Sistema Prisional">Sistema Prisional</option>
+            <option value="Revisão Final">Revisão Final</option>
+        </select>
+    </div>
+
+    <div id="listaAulas"></div>
+
+</section>
+
+        <section id="metas" class="page">
+
+    <h1>Metas de Estudo</h1>
+
+    <div class="questao">
+
+        <label>
+            Meta diária de questões:
+        </label>
+
+        <input
+            type="number"
+            id="metaDiaria"
+            value="50"
+        >
+
+        <button
+            onclick="salvarMeta()"
+        >
+            Salvar Meta
+        </button>
+
+        <br><br>
+
+        <h3>
+            Progresso Hoje
+        </h3>
+
+        <span id="progressoMeta">
+            0
+        </span>
+<div class="questao">
+  <h3>Histórico de Metas</h3>
+
+  <div class="filtros">
+    <button onclick="mostrarHistoricoMetas(7)">Últimos 7 dias</button>
+    <button onclick="mostrarHistoricoMetas(15)">Últimos 15 dias</button>
+    <button onclick="mostrarHistoricoMetas(30)">Últimos 30 dias</button>
+  </div>
+
+  <div id="historicoMetas"></div>
+</div>
+    </div>
+
+</section>
+
+        <!-- DASHBOARD -->
+
+ <section id="dashboard" class="page">
+
+    <h1>📊 Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Questões Respondidas</h3>
+            <span id="totalRespondidas">0</span>
+        </div>
+
+        <div class="card">
+            <h3>Acertos</h3>
+            <span id="totalAcertos">0</span>
+        </div>
+
+        <div class="card">
+            <h3>Aproveitamento</h3>
+            <span id="percentualGeral">0%</span>
+        </div>
+
+        <div class="card">
+            <h3>Questões para Revisão</h3>
+            <span id="totalRevisao">0</span>
+        </div>
+
+        <div class="card">
+            <h3>Matéria Mais Forte</h3>
+            <span id="dashboardMateriaForte">-</span>
+        </div>
+
+        <div class="card">
+            <h3>Matéria Mais Fraca</h3>
+            <span id="dashboardMateriaFraca">-</span>
+        </div>
+
+    </div>
+
+    <div class="questao">
+
+        <h2>🎯 O Que Estudar Hoje</h2>
+
+        <div id="planoEstudos">
+
+            Nenhum dado disponível.
+
+        </div>
+
+    </div>
+
+    <div class="questao">
+
+        <h2>📚 Desempenho por Matéria</h2>
+
+        <div id="dashboardMaterias"></div>
+
+    </div>
+
+    <div class="questao">
+
+        <h2>📈 Evolução dos Simulados</h2>
+
+        <canvas id="graficoEvolucao"></canvas>
+
+    </div>
+
+</section>
+
+        <!-- QUESTÕES -->
+
+        <section id="questoes" class="page">
+
+            <h1>Banco de Questões</h1>
+
+            <div class="filtros">
+
+                <select id="filtroMateria">
+
+    <option value="">Todas</option>
+
+    <option value="Constituição Federal">Constituição Federal</option>
+
+    <option value="Constituição Estadual RS">
+        Constituição Estadual RS
+    </option>
+
+    <option value="Improbidade Administrativa">
+        Improbidade Administrativa
+    </option>
+
+    <option value="Lei de Acesso à Informação">
+        Lei de Acesso à Informação
+    </option>
+
+    <option value="Processo Administrativo">
+        Processo Administrativo
+    </option>
+
+    <option value="Lei 14.133/2021">
+        Lei 14.133/2021
+    </option>
+
+    <option value="Sistema Prisional">
+        Sistema Prisional
+    </option>
+
+    <option value="LEP">
+        LEP
+    </option>
+
+    <option value="Português">
+        Português
+    </option>
+
+    <option value="Informática">
+        Informática
+    </option>
+
+    <option value="Raciocínio Lógico">
+        Raciocínio Lógico
+    </option>
+
+</select>
+
+                <button onclick="filtrarQuestoes()">
+                    Filtrar
+                </button>
+
+            </div>
+
+            <div id="listaQuestoes">
+
+            </div>
+
+        </section>
+
+        <!-- SIMULADO -->
+
+        <section id="simulado" class="page">
+
+
+            <h1>Gerador de Simulados</h1>
+
+            <div class="simulado-config">
+
+                <label>Quantidade:</label>
+
+                <input
+                    type="number"
+                    id="quantidadeQuestoes"
+                    value="20"
+                    min="5"
+                    max="80"
+                >
+
+                <label>Matéria:</label>
+
+                <select id="simuladoMateria">
+
+    <option value="">Todas</option>
+
+    <option value="Constituição Federal">
+        Constituição Federal
+    </option>
+
+    <option value="Constituição Estadual RS">
+        Constituição Estadual RS
+    </option>
+
+    <option value="Improbidade Administrativa">
+        Improbidade Administrativa
+    </option>
+
+    <option value="Lei de Acesso à Informação">
+        Lei de Acesso à Informação
+    </option>
+
+    <option value="Processo Administrativo">
+        Processo Administrativo
+    </option>
+
+    <option value="Lei 14.133/2021">
+        Lei 14.133/2021
+    </option>
+
+    <option value="Sistema Prisional">
+        Sistema Prisional
+    </option>
+
+    <option value="LEP">
+        LEP
+    </option>
+
+    <option value="Português">
+        Português
+    </option>
+
+    <option value="Informática">
+        Informática
+    </option>
+
+    <option value="Raciocínio Lógico">
+        Raciocínio Lógico
+    </option>
+
+</select>
+
+                <button onclick="gerarSimulado()">
+                    Gerar Simulado
+                </button>
+
+            </div>
+<div class="questao">
+    <h3>Tempo de Prova</h3>
+    <h1 id="cronometro">00:00:00</h1>
+</div>
+            <div id="areaSimulado"></div>
+
+        </section>
+
+        <!-- ESTATÍSTICAS -->
+
+        <section id="estatisticas" class="page">
+  <h1>Estatísticas Detalhadas</h1>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Matéria Mais Forte</h3>
+      <span id="materiaForte">-</span>
+    </div>
+
+    <div class="card">
+      <h3>Matéria Mais Fraca</h3>
+      <span id="materiaFraca">-</span>
+    </div>
+
+    <div class="card">
+      <h3>Total em Revisão</h3>
+      <span id="estatTotalRevisao">0</span>
+    </div>
+  </div>
+
+  <div class="questao">
+    <h2>Desempenho por Matéria</h2>
+    <div id="tabelaEstatisticas"></div>
+  </div>
+</section>
+
+        <!-- REVISÃO -->
+
+        <section id="revisao" class="page">
+
+            <h1>Questões para Revisar</h1>
+
+            <div id="listaRevisao"></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/questoes.js"></script>
+<script src="js/app.js"></script>
+<button id="themeToggle" onclick="alternarTema()" title="Alternar tema">
+    🌙
+</button>
+<button
+    id="homeFloating"
+    onclick="showPage('areaEstudos')"
+    title="Voltar aos Estudos"
+>
+    🏠
+</button>
+</body>
+</html>
