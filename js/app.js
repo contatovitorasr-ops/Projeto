@@ -989,25 +989,28 @@ function renderizarAulas(){
 `;
 
         const videoHTML = aula.video
-            ? `
-                <iframe
-                    class="aula-video"
-                    src="${aula.video}"
-                    allowfullscreen
-                ></iframe>
-            `
-            : `
-                <div class="aula-video"
-                    style="
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        color:#94a3b8;
-                    "
-                >
-                    🎥 Espaço reservado para videoaula
-                </div>
-            `;
+    ? `
+        <iframe
+            class="aula-video"
+            src="${aula.video}"
+            title="${aula.titulo}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+        ></iframe>
+    `
+    : `
+        <div class="aula-video"
+            style="
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                color:#94a3b8;
+            "
+        >
+            🎥 Espaço reservado para videoaula
+        </div>
+    `;
 
         const pdfHTML = aula.pdf
             ? `
