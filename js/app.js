@@ -914,9 +914,9 @@ const aulas = [
 
     // SISTEMA PRISIONAL
     {id:"aula31", materia:"Sistema Prisional", titulo:"Estrutura do Sistema Prisional", video:"", pdf:"pdfs/prisional_01.pdf", mapa:"mapas/prisional_01.png"},
-    {id:"aula32", materia:"Sistema Prisional", titulo:"Lei de Execução Penal: Fundamentos", video:"", pdf:"pdfs/prisional_02.pdf", mapa:"mapas/prisional_02.png"},
+    {id:"aula32", materia:"Sistema Prisional", titulo:"Lei de Execução Penal: Fundamentos", video:"https://www.youtube-nocookie.com/embed/OGNH8P4yI50", pdf:"pdfs/prisional_02.pdf", mapa:"mapas/prisional_02.png"},
     {id:"aula33", materia:"Sistema Prisional", titulo:"LEP: Direitos e Deveres do Preso", video:"", pdf:"pdfs/prisional_03.pdf", mapa:"mapas/prisional_03.png"},
-    {id:"aula34", materia:"Sistema Prisional", titulo:"LEP: Trabalho, Estudo e Remição", video:"", pdf:"pdfs/prisional_04.pdf", mapa:"mapas/prisional_04.png"},
+    {id:"aula34", materia:"Sistema Prisional", titulo:"LEP: Trabalho, Estudo e Remição", video:"https://www.youtube-nocookie.com/embed/b-WLl13i2sQ", pdf:"pdfs/prisional_04.pdf", mapa:"mapas/prisional_04.png"},
     {id:"aula35", materia:"Sistema Prisional", titulo:"Regimes de Cumprimento de Pena", video:"", pdf:"pdfs/prisional_05.pdf", mapa:"mapas/prisional_05.png"},
     {id:"aula36", materia:"Sistema Prisional", titulo:"Estatuto da Polícia Penal RS", video:"", pdf:"pdfs/prisional_06.pdf", mapa:"mapas/prisional_06.png"},
     {id:"aula37", materia:"Sistema Prisional", titulo:"Normativas Estaduais do Sistema Prisional", video:"", pdf:"pdfs/prisional_07.pdf", mapa:"mapas/prisional_07.png"},
