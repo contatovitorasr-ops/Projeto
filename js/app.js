@@ -924,10 +924,11 @@ const aulas = [
     // RETA FINAL
     {id:"aula38", materia:"Revisão Final", titulo:"Revisão de Português", video:"https://www.youtube-nocookie.com/embed/H4VQjNlAXBY", pdf:"pdfs/revisao_01.pdf", mapa:"mapas/revisao_01.png"},
     {id:"aula39", materia:"Revisão Final", titulo:"Revisão de Informática", video:"https://www.youtube-nocookie.com/embed/2nPzTDT8Hb8", pdf:"pdfs/revisao_02.pdf", mapa:"mapas/revisao_02.png"},
-    {id:"aula40", materia:"Revisão Final", titulo:"Revisão de Direito", video:"https://www.youtube-nocookie.com/embed/zvprImSjg3g", pdf:"pdfs/revisao_03.pdf", mapa:"mapas/revisao_03.png"},
-    {id:"aula41", materia:"Revisão Final", titulo:"Revisão de Sistema Prisional", video:"", pdf:"pdfs/revisao_04.pdf", mapa:"mapas/revisao_04.png"},
-    {id:"aula42", materia:"Revisão Final", titulo:"Simulado Geral Comentado", video:"", pdf:"pdfs/revisao_05.pdf", mapa:"mapas/revisao_05.png"}
-    {id:"aula43", materia:"Revisão Final", titulo:"Revisão de Raciocínio Lógico", video:"https://www.youtube-nocookie.com/embed/T3Y83n6B2Yg", pdf:"pdfs/revisao_06.pdf", mapa:"mapas/revisao_06.png"},
+    {id:"aula40", materia:"Revisão Final", titulo:"Revisão de Raciocínio Lógico", video:"https://www.youtube-nocookie.com/embed/T3Y83n6B2Yg", pdf:"pdfs/revisao_logico.pdf", mapa:"mapas/revisao_logico.png"},
+    {id:"aula41", materia:"Revisão Final", titulo:"Revisão de Direito", video:"https://www.youtube-nocookie.com/embed/zvprImSjg3g", pdf:"pdfs/revisao_03.pdf", mapa:"mapas/revisao_03.png"},
+    {id:"aula42", materia:"Revisão Final", titulo:"Revisão de Sistema Prisional", video:"", pdf:"pdfs/revisao_04.pdf", mapa:"mapas/revisao_04.png"},
+    {id:"aula43", materia:"Revisão Final", titulo:"Simulado Geral Comentado", video:"", pdf:"pdfs/revisao_05.pdf", mapa:"mapas/revisao_05.png"}
+    
 
 ];
 
