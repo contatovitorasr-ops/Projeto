@@ -871,7 +871,7 @@ function mostrarHistoricoMetas(dias = 7) {
   `;
 
   container.innerHTML = html;
-}
+};
 const aulas = [
 
     // PORTUGUÊS
