@@ -818,7 +818,44 @@ function registrarMetaDiaria() {
     JSON.stringify(historicoMetas)
   );
 }
+function atualizarPainelAdmin(){
 
+    if(!usuarioLogado) return;
+
+    const painel =
+        document.getElementById("painelAdmin");
+
+    if(!painel) return;
+
+    if(
+        usuarioLogado.email.toLowerCase() ===
+        "contato.vitorasr@gmail.com"
+    ){
+
+        painel.style.display = "block";
+
+        const usuarios =
+            JSON.parse(
+                localStorage.getItem("usuariosPP")
+            ) || [];
+
+        const total =
+            document.getElementById(
+                "totalUsuarios"
+            );
+
+        if(total){
+            total.innerText =
+                usuarios.length;
+        }
+
+    }else{
+
+        painel.style.display = "none";
+
+    }
+
+}
 function mostrarHistoricoMetas(dias = 7) {
   registrarMetaDiaria();
 
