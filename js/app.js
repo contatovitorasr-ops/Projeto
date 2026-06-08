@@ -745,7 +745,21 @@ function alternarTema() {
     botao.innerText = temaClaro ? "☀️" : "🌙";
   }
 }
+function iniciarSistemaLogado() {
 
+  document.getElementById("telaLogin").style.display = "none";
+
+  carregarDadosUsuario();
+  carregarQuestoes();
+  carregarRevisoes();
+
+  atualizarDashboard();
+  atualizarCronometroTela();
+
+  atualizarPainelAdmin(); // ADICIONE ESTA LINHA
+
+  showPage("dashboard");
+}
 function resetarEstatisticas() {
   const senha = prompt("Digite RESET para apagar estatísticas, histórico e revisões.");
 
